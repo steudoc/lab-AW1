@@ -1,0 +1,15 @@
+{
+  "name": "es1",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Stefano Tallone",
+  "type": "module",
+  "main": "es1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.19"
+  }
+}

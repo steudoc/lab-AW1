@@ -39,8 +39,8 @@ Print the entire list of films stored in the `FilmLibrary`, including all their 
 #### Example Output     
     Id: 1, Title: Pulp Fiction, Favorite: true, Watch date: March 10, 2025, Rating: 5, User id: 1
     Id: 2, Title: 21 Grams, Favorite: true, Watch date: March 17, 2025, Rating: 4, User id: 1
-    Id: 3, Title: Star Wars, Favorite: false, Watch date: undefined, Rating: undefined, User id: 1
-    Id: 4, Title: Matrix, Favorite: false, Watch date: undefined, Rating: undefined, User id: 1
+    Id: 3, Title: Star Wars, Favorite: false, Watch date: null, Rating: null, User id: 1
+    Id: 4, Title: Matrix, Favorite: false, Watch date: null, Rating: null, User id: 1
     Id: 5, Title: Shrek, Favorite: false, Watch date: March 21, 2025, Rating: 3, User id: 1
 
 ### Hints

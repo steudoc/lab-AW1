@@ -69,32 +69,36 @@ function FilmLibrary() {
     }
 }
 
-const library = new FilmLibrary();
+function main() {
+    const library = new FilmLibrary();
 
-library.addFilm(new Film("Pulp Fiction", true, '2025-03-10', 5));
-library.addFilm(new Film("21 Grams", true, '2025-03-17', 4));
-library.addFilm(new Film("Star Wars"));
-library.addFilm(new Film("Matrix"));
-library.addFilm(new Film("Shrek", false, '2025-03-21', 3));
+    library.addFilm(new Film("Pulp Fiction", true, '2025-03-10', 5));
+    library.addFilm(new Film("21 Grams", true, '2025-03-17', 4));
+    library.addFilm(new Film("Star Wars"));
+    library.addFilm(new Film("Matrix"));
+    library.addFilm(new Film("Shrek", false, '2025-03-21', 3));
 
-library.printAll();
+    library.printAll();
 
-library.sortByDate();
-console.log("\nAfter sorting by ascending watch date:");
-library.printAll();
+    library.sortByDate();
+    console.log("\nAfter sorting by ascending watch date:");
+    library.printAll();
 
-library.sortByRating();
-console.log("\nAfter sorting by decreasing rating:");
-library.printAll();
+    library.sortByRating();
+    console.log("\nAfter sorting by decreasing rating:");
+    library.printAll();
 
-library.addFilm(new Film("Dune"));
-console.log("\nAfter insertion of Dune:");
-library.printAll();
+    library.addFilm(new Film("Dune"));
+    console.log("\nAfter insertion of Dune:");
+    library.printAll();
 
-library.updateRating(6, 2);
-console.log("\nAfter updating rating:");
-library.printAll();
+    library.updateRating(6, 2);
+    console.log("\nAfter updating rating:");
+    library.printAll();
 
-library.removeFilm(6);
-console.log("\nAfter removing film with id = 6:");
-library.printAll();
+    library.removeFilm(6);
+    console.log("\nAfter removing film with id = 6:");
+    library.printAll();
+}
+
+main();

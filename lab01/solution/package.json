@@ -1,0 +1,15 @@
+{
+  "name": "lab01-solution",
+  "version": "1.0.0",
+  "description": "Solution for the first WepApp lab",
+  "license": "ISC",
+  "author": "Alberto Monge Roffarello",
+  "type": "module",
+  "main": "lab01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.19"
+  }
+}

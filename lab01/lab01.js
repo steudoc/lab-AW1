@@ -2,38 +2,46 @@ import dayjs from "dayjs"
 
 let nextId = 1;
 
-function Film(title, favorite=false, date=null, rating=null, userId=1) {
+function Film(title, favorite=false, watchDate=null, rating=null, userId=1) {
     if (!title) {
         throw new Error('Title is mandatory');
     }
     this.id = nextId++;
     this.title = title;
     this.favorite = favorite;
-    this.date = date===null ? null : dayjs(date);
+    // saved as dayjs object only if watchDate is truthy
+    this.watchDate = watchDate && dayjs(watchDate);
     this.rating = rating;
     this.userId = userId; 
+
+    this.toString = () => {
+        console.log(`Id: ${this.id}, Title: ${this.title}, Favorite: ${this.favorite}, Watch date: ${this.watchDate===null ? "null" : this.watchDate.format("MMMM D, YYYY")}, Rating: ${this.rating}, User id: ${this.userId}`);
+    }
 }
 
 function FilmLibrary() {
     this.films = []
 
     this.addFilm = (film) => {
-        this.films.push(film);
+        if(!this.films.some(f => f.id == film.id))
+            this.films.push(film);
+        else
+            console.log("Duplicated film!");
     }
 
     this.printAll = () => {
         this.films.forEach(film => {
-            console.log(`Id: ${film.id}, Title: ${film.title}, Favorite: ${film.favorite}, Watch date: ${film.date===null ? "null" : film.date.format("MMMM D, YYYY")}, Rating: ${film.rating}, User id: ${film.userId}`)
-        })
+            film.toString();
+        });
     }
 
     this.sortByDate = () => {
         this.films.sort((film1, film2) => {
-            if (film1.date && film2.date) {
-                return film1.date.isBefore(film2.date) ? -1 : 1;
+            if (film1.watchDate && film2.watchDate) {
+                return film1.watchDate.isBefore(film2.watchDate) ? -1 : 1;
             }
-            if (!film1.date && film2.date) return 1;
-            if (film1.date && !film2.date) return -1;
+            if (!film1.watchDate && film2.watchDate) return 1;
+            if (film1.watchDate && !film2.watchDate) return -1;
             return 0;
         });
     }
@@ -43,17 +51,17 @@ function FilmLibrary() {
             if (film1.rating && film2.rating) {
                 return film2.rating - film1.rating;
             }
-            if (!film1.date && film2.date) return 1;
-            if (film1.date && !film2.date) return -1;
+            if (!film1.rating && film2.rating) return 1;
+            if (film1.rating && !film2.rating) return -1;
             return 0;
         });
     }
 
     this.removeFilm = (id) => {
-        const index = this.films.findIndex(film => film.id === id);
-        if (index !== -1) {
-            this.films.splice(index, 1);
-        }
+        const newList = this.films.filter(function(film) {
+            return film.id !== id;
+        });
+        this.films = newList;
     }
 
     this.updateRating = (id, newRating) => {

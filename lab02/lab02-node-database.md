@@ -27,10 +27,10 @@ a. Retrieve all the stored films and return a **Promise** that resolves to an ar
 
 b. Retrieve all **favorite films** and return a **Promise** that resolves to an array of `Film` objects.
 
-d. Retrieve films whose **watch date is earlier than a given date** passed as a parameter.  
+c. Retrieve films whose **watch date is earlier than a given date** passed as a parameter.  
 Return a **Promise** that resolves to an array of `Film` objects.
 
-f. Retrieve films whose **title contains a given string** passed as a parameter.
+d. Retrieve films whose **title contains a given string** passed as a parameter.
 Return a **Promise** that resolves to an array of `Film` objects.
 
 Finally, test the implemented methods by **calling them and printing the results**.

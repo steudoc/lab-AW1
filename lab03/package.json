@@ -1,0 +1,19 @@
+{
+  "name": "lab03",
+  "version": "1.0.0",
+  "description": "The `FilmLibrary-server` is the server-side app companion for FilmLibrary. It presents some APIs to perform some CRUD operations on films.",
+  "license": "ISC",
+  "author": "Stefano Tallone",
+  "type": "module",
+  "main": "lab03.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.20",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "morgan": "^1.10.1",
+    "sqlite3": "^6.0.1"
+  }
+}

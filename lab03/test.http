@@ -1,0 +1,66 @@
+GET http://localhost:3001/api/films
+
+###
+
+GET http://localhost:3001/api/films/favorites
+
+###
+
+GET http://localhost:3001/api/films/bests
+
+###
+
+GET http://localhost:3001/api/films/last_month
+
+###
+
+GET http://localhost:3001/api/films/unseen
+
+###
+
+GET http://localhost:3001/api/films/1
+
+###
+
+POST http://localhost:3001/api/films
+content-type: application/json
+
+{
+  "title": "Avatar"
+}
+
+###
+
+PUT http://localhost:3001/api/films/6
+content-type: application/json
+
+{
+  "title": "Avatar",
+  "isFavorite": 1,
+  "rating": 3
+}
+
+###
+
+PATCH http://localhost:3001/api/films/6/rate
+content-type: application/json
+
+{
+  "rating": 4
+}
+
+###
+
+PATCH http://localhost:3001/api/films/6/favorite
+content-type: application/json
+
+{
+  "isFavorite": 0
+}
+
+###
+
+DELETE http://localhost:3001/api/films/6/delete
+content-type: application/json
+
+

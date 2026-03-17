@@ -12,10 +12,10 @@ Hereafter, we report the designed HTTP APIs, also implemented in the project.
 - Retrieve a list of all the films seen in the last month `GET /films/last_month`
 - Retrieve all the unseen films `GET /films/unseen`
 - Retrieve a film given its id `GET /films/<id>`
-- Create a new film `PUT /films`
+- Create a new film `POST /films`
 - Update an existing film `PUT /films/<id>`
-- Update rating of an existing film `POST /films/<id>/rate`
-- Mark an existing film as favorite/unfavorite `POST /films/<id>/favorite`
+- Update rating of an existing film `PATCH /films/<id>/rate`
+- Mark an existing film as favorite/unfavorite `PATCH /films/<id>/favorite`
 - Delete an existing film given its id `DELETE /films/<id>`
 
 ### __List the films__
@@ -167,9 +167,9 @@ Response body:
 
 ### __Create a new film__
 
-URL: `/api/films/<id>/create`
+URL: `/api/films`
 
-HTTP Method: PUT
+HTTP Method: POST
 
 Description: Create a new film represented by id.
 
@@ -190,7 +190,7 @@ URL: `/api/films/<id>`
 
 HTTP Method: PUT
 
-Description: Update the film identified by <id>.
+Description: Update the film identified by id.
 
 Request body:
 ```
@@ -207,9 +207,9 @@ Response: `200 OK` (success), `404 Not Found` (failure, if id doesn't exist) or 
 
 ### __Update rating of a film__
 
-URL: `/api/film/<id>/rate`
+URL: `/api/films/<id>/rate`
 
-HTTP Method: POST
+HTTP Method: PATCH
 
 Description: Update the rating of the film identified by <id>.
 
@@ -226,7 +226,7 @@ Response: `204 No content` (success), `404 Not Found` (failure, if id doesn't ex
 
 URL: `/api/films/<id>/favorite`
 
-HTTP Method: POST
+HTTP Method: PATCH
 
 Description: Mark as favorite/unfavorite the film identified by id.
 
@@ -247,4 +247,4 @@ HTTP Method: DELETE
 
 Description: Delete and existing film given its id.
 
-Response `200 OK` (success), `404 Not Found` (failure, if id doesn't exists) or `500 Internal Servere Error`.
+Response `200 OK` (success), `404 Not Found` (failure, if id doesn't exists) or `500 Internal Server Error`.

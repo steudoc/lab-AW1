@@ -1,0 +1,35 @@
+body {
+    height: 100vh;
+}
+
+nav {
+    color: white;
+}
+
+.title {
+    color: white;
+}
+
+.list-group-item {
+    border: none;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+p {
+    vertical-align: middle;
+    margin: 0;
+}
+
+.film  a {
+    color: black;
+}
+
+.bi-star-fill {
+    color: gold;
+}
+
+.bi-suit-heart-fill {
+    color: red;
+}
+

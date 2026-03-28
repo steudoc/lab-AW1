@@ -1,0 +1,19 @@
+{
+  "name": "lab03-express",
+  "version": "1.0.0",
+  "description": "2026 - PoliTo - Web App I - Lab 3",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.20",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "morgan": "^1.10.1",
+    "sqlite3": "^6.0.1"
+  }
+}

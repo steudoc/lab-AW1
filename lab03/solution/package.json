@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "2026 - PoliTo - Web App I - Lab 3",
   "license": "ISC",
-  "author": "",
+  "author": "Alberto Monge Roffarello",
   "type": "module",
   "main": "server.js",
   "scripts": {

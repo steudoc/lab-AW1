@@ -1,5 +1,5 @@
 {
-  "name": "lab06-react",
+  "name": "lab07-routes",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "author": "Luca Mannella, Luca Pezzolla, Juan Pablo Saenz Moreno, Alberto Monge Roffarello, Francesca Russo",
+  "author": "Luca Mannella, Luca Pezzolla, Juan Pablo Saenz Moreno, Alberto Monge Roffarello, Francesca Russo, Luca Scibetta",
   "license": "ISC",
   "homepage": "https://github.com/polito-webapp1/lab-2026",
   "dependencies": {
@@ -18,7 +18,8 @@
     "dayjs": "^1.11.20",
     "react": "^19.2.4",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router": "^7.14.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

@@ -107,7 +107,7 @@ export function FilmForm(props) {
 
                 {props.addFilm && <Button variant="success" type="submit" className="me-2">Add</Button>}
                 {props.editFilm && <Button variant="warning" type="submit" className="me-2">Edit</Button>}
-                <Link className="btn btn-danger" to={"/films"}>Cancel</Link>
+                <Link className="btn btn-danger" to={"/films/filter/filter-all"}>Cancel</Link>
             </Form>
         </>
     );

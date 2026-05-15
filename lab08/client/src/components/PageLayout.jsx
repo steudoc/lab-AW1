@@ -1,4 +1,4 @@
-import { Row, Col, Collapse } from "react-bootstrap";
+import { Row, Col, Collapse, Alert } from "react-bootstrap";
 import { Outlet, Link, useParams, useLocation } from "react-router";
 
 import Filters from "./Filters.jsx";
@@ -17,6 +17,9 @@ export function FilmLibraryLayout(props) {
         </div>
       </Collapse>
       <Col md={9} className="pt-3">
+        {props.message && <Row> <Col md={12}>
+        <Alert variant={props.message.type} onClose={() => props.setMessage("")} dismissible>{props.message.msg}</Alert>
+        </Col></Row>}
         <Outlet/>
       </Col>
     </Row>

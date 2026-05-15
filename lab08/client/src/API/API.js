@@ -8,7 +8,7 @@ const getFilms = async () => {
     const response = await fetch(SERVER_URL + "/api/films");
     if (response.ok) {
         const filmJson = await response.json();
-        return filmJson.map(f => new Film(f.id, f.title, f.isFavorite, f.watchDate, f.rating, f.userid));
+        return filmJson.map(f => new Film(f.id, f.title, f.isFavorite, f.watchDate, f.rating, f.userId));
     } else {
         throw new Error("Internal server error");
     }
@@ -45,7 +45,7 @@ const addFilm = async (film) => {
       errMessage = `${errMessage.errors[0].msg} for ${errMessage.errors[0].path}.`
     else
       errMessage = errMessage.error;
-    throw errMessage;
+    throw Error(errMessage);
     }
     else return null;
 }
@@ -126,7 +126,7 @@ const rateFilm = async (id, rating) => {
       errMessage = `${errMessage.errors[0].msg} for ${errMessage.errors[0].path}.`
     else
       errMessage = errMessage.error;
-    throw errMessage;
+    throw Error(errMessage);
   }
   else return null;
 }
@@ -146,10 +146,52 @@ const deleteFilm = async (id) => {
       errMessage = `${errMessage.errors[0].msg} for ${errMessage.errors[0].path}.`
     else
       errMessage = errMessage.error;
-    throw errMessage;
+    throw Error(errMessage);
   }
   else return null;
 }
 
-const API = { getFilms, getFilmById, addFilm, updateFilm, favoriteFilm, rateFilm, deleteFilm };
+// Effettua il login
+const logIn = async (credentials) => {
+  const response = await fetch(SERVER_URL + "/api/sessions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(credentials),
+  });
+  if (response.ok) {
+    const user = await response.json();
+    return user;
+  } else {
+    const errDetails = response.headers.get("WWW-Authenticate");
+    throw Error(errDetails);
+  }
+};
+
+// Recupera info utente dopo il login
+const getUserInfo = async () => {
+  const response = await fetch(SERVER_URL + "/api/sessions/current", {
+    credentials: "include",
+  });
+  const user = await response.json();
+  if (response.ok) {
+    return user;
+  } else {
+    throw Error(user.error);
+  }
+}
+
+// Effettua il logout
+const logOut = async () => {
+  const response = await fetch(SERVER_URL + "/api/sessions/current", {
+    method: "DELETE",
+    credentials: "include"
+  });
+  if (response.ok) 
+    return null;
+}
+
+const API = { getFilms, getFilmById, addFilm, updateFilm, favoriteFilm, rateFilm, deleteFilm, logIn, getUserInfo, logOut };
 export default API;

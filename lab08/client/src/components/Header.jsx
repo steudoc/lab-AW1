@@ -1,15 +1,17 @@
 import {Button, Col, Container, Row} from "react-bootstrap/";
+import {LogoutButton} from "./AuthComponents.jsx";
 import PropTypes from "prop-types";
+import { Link } from "react-router";
 
-function Header({isSidebarExpanded, setIsSidebarExpanded}) {
+function Header(props) {
     return <header className="py-1 py-md-3 border-bottom bg-primary">
         <Container fluid className="gap-3 align-items-center">
             <Row>
                 <Col xs={3} className="d-md-none">
                     <Button
-                        onClick={() => setIsSidebarExpanded(p => !p)}
+                        onClick={() => props.setIsSidebarExpanded(p => !p)}
                         aria-controls="films-filters"
-                        aria-expanded={isSidebarExpanded}
+                        aria-expanded={props.isSidebarExpanded}
                     >
                         <i className="bi bi-list"/>
                     </Button>
@@ -25,9 +27,10 @@ function Header({isSidebarExpanded, setIsSidebarExpanded}) {
                     <form className="d-none d-md-block w-100 me-3">
                         <input type="search" className="form-control" placeholder="Search..." aria-label="Search"/>
                     </form>
-                    <a href="#" className="d-block link-light text-decoration-none">
-                        <i className="bi bi-person-circle"></i>
-                    </a>
+                    {props.loggedIn ?
+                        <LogoutButton logout={() => props.handleLogout()} /> :
+                        <Link to="/login" className="d-block link-light text-decoration-none"><i className="bi bi-person-circle"></i></Link>
+                    }
                 </Col>
             </Row>
         </Container>
@@ -36,7 +39,8 @@ function Header({isSidebarExpanded, setIsSidebarExpanded}) {
 
 Header.propTypes = {
     isSidebarExpanded: PropTypes.bool,
-    setIsSidebarExpanded: PropTypes.func
+    setIsSidebarExpanded: PropTypes.func,
+    loggedIn: PropTypes.bool
 }
 
 export default Header;

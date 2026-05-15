@@ -3,8 +3,7 @@ import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
 import { useState, useActionState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
-import { Rating } from './FilmList.jsx'
-import { Link, useNavigate, useLocation, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 
 import { Film } from '../films.mjs';
 import API from "../API/API.js"
@@ -18,7 +17,7 @@ const FilmForm = (props) => {
       isFavorite: Boolean(props.film?.isFavorite) ?? false,
       rating: props.film?.rating ?? null,
       watchDate: props.film?.watchDate ?? null,
-      userId: props.film?.userId ?? 1,
+      userId: props.user?.id ?? 1,
   }
 
   const handleSubmit = async (prevState, formData) => {
@@ -107,7 +106,8 @@ FilmForm.propTypes = {
   film: PropTypes.object,
   setDirty: PropTypes.func.isRequired,
   addFilm: PropTypes.bool,
-  editFilm: PropTypes.bool
+  editFilm: PropTypes.bool,
+  user: PropTypes.any
 };
 
 export default FilmForm;
